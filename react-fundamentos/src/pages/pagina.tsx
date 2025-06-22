@@ -1,16 +1,14 @@
-import "../app/globals.css";
 import Pagina from "@/components/Pagina";
 export default function TestePagina() {
   const title = "Fundamentos";
   const subtitle = `Página dentro de um diretório "pages"`;
-  const textoEsquerda = "Texto da esquerda 😊";
-  const textoDireita = "👌 Texto da direita";
+
+  function executar() {
+    console.log("O botão foi pressionado!");
+  }
   return (
-    <Pagina title={title} subtitle={subtitle} leftFooterText={textoEsquerda} rightFooterText={textoDireita}>
-      <button
-        className={`
-          bg-pink-400 p-2 rounded-md
-      `}>
+    <Pagina title={title} subtitle={subtitle}>
+      <button className="botao" onClick={executar}>
         Botão de Teste
       </button>
     </Pagina>

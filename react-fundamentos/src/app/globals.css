@@ -1,3 +1,5 @@
+/* Importar components.css */
+@import url("./components.css");
 @import "tailwindcss";
 
 :root {

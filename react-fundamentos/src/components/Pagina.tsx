@@ -1,40 +1,36 @@
 import { JSX } from "react";
 import Cabecalho from "./Cabecalho";
 import ConteudoV2 from "./ConteudoV2";
-import Menu from "./Menu";
 import RodapeDesafio from "./RodapeDesafio";
+import AreaLateral from "./AreaLateral";
 
 interface Props {
   title: string;
   subtitle: string;
-  leftFooterText: string;
-  rightFooterText: string;
+  leftFooterText?: string;
+  rightFooterText?: string;
+  headerClassName?: string;
   children: JSX.Element;
 }
 
 export default function Pagina(props: Props) {
   const { title, subtitle, leftFooterText, rightFooterText } = props;
-  const menuItems = [
-    { label: "Item #1", url: "/fundamentos/pagina" },
-    { label: "Item #2", url: "/pagina" },
-  ];
 
   return (
     <div
       className={`
-        flex flex-col h-screen
-        p-4 gap-4
+        flex h-screen
         bg-black
     `}>
-      <Cabecalho titulo={title} subtitulo={subtitle} />
+      <AreaLateral />
       <div
         className={`
-          flex flex-1 gap-2
-        `}>
-        <Menu menuItems={menuItems} />
+          flex flex-col flex-1
+          `}>
+        <Cabecalho titulo={title} subtitulo={subtitle} className="bg-zinc-800" />
         <ConteudoV2>{props.children}</ConteudoV2>
+        <RodapeDesafio textoEsquerda={leftFooterText ?? "Texto da esquerda 🐙"} textoDireita={rightFooterText ?? "👌 Texto da direita"} />
       </div>
-      <RodapeDesafio textoEsquerda={leftFooterText} textoDireita={rightFooterText} />
     </div>
   );
 }

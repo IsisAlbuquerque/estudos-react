@@ -7,8 +7,8 @@ export default function Rodape(props: Props) {
     <div
       className={`
           flex items-center justify-between p-3
-          h-36 rounded-lg text-2xl
-           bg-teal-300
+          h-16 text-base bg-zinc-900
+          border-t border-zinc-800 text-zinc-500
       `}>
       <span>{props.textoEsquerda}</span> <span>{props.textoDireita}</span>
     </div>
